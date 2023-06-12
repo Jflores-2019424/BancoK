@@ -2,11 +2,10 @@ import React from 'react'
 
 export const BancoMenu = () => {
   return (
-    <div>
+    <div className='container border border-dark mt-5 divi '>
       <h1>Menu</h1>
       <hr />
-      <h2>Transacciones</h2>
-  
+      <p>Transacciones</p>
     </div>
   )
 }

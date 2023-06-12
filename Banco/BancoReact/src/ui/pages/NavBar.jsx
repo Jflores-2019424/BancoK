@@ -14,7 +14,7 @@ export const NavBar = () => {
     }
 
     return (
-        <nav className="navbar navbar-expand-sm navbar-dark bg-secondary bg-gradient p-2">
+        <nav className="navbar navbar-expand-sm navbar-dark nav bg-gradient p-2">
              
              <Link 
                     to="/"
@@ -22,7 +22,7 @@ export const NavBar = () => {
                 <img src='src\assets\image\LogoBanco.png' 
                 width="100" 
                 height="100" 
-                className="border border-5 border-dark rounded-circle bg-dark mx-2"
+                className="border border-5 border-dark rounded-circle bg-dark mx-2 rotate"
                 />
             </Link>
 

@@ -27,7 +27,7 @@ export const Login = () => {
                   <img src='src\assets\image\LogoBanco.png' 
                     width="100" 
                     height="100"
-                    className="border border-1 border-dark rounded-circle bg-dark"
+                    className="border border-1 border-dark rounded-circle bg-dark rotate"
                   />
               </div>
 
@@ -48,14 +48,14 @@ export const Login = () => {
         <div className='text-center'>
           <button
           onClick={onLogin}
-          className='btn btn-primary mb-2 '
+          className='btn btn-primary mb-2 button'
           >
             Login
           </button>
 
           <button
           onClick={onRegister}
-          className='btn btn-primary mb-2 mx-3'
+          className='btn btn-primary mb-2 mx-3 button'
           >
             Registrarse
           </button>

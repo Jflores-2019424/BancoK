@@ -34,6 +34,11 @@ body{
     animation: rotation 8s infinite linear;
 }
 
+.translate:hover{
+    transform: translate(10px);
+    box-shadow: 2px 2px 2px 2px #f85959;
+}
+
 @keyframes rotation {
     from {
       transform: rotate(0deg);
@@ -42,3 +47,24 @@ body{
       transform: rotate(359deg);
     }
   }
+
+.card{
+    transition: .2s all;
+    cursor: pointer;
+    box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0, 0.25);
+}
+
+.card > span{
+    display: block;
+}
+
+.contain:hover .card{
+    filter: blur(3px);
+    opacity: .5;
+    transform: scale(.98);
+    box-shadow: none;
+}
+
+.contain:hover .card:hover{
+    transform: scale(1);
+}

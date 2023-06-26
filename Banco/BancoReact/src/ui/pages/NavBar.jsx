@@ -15,7 +15,6 @@ export const NavBar = () => {
 
     return (
         <nav className="navbar navbar-expand-sm navbar-dark nav bg-gradient p-2">
-             
              <Link 
                     to="/"
                 >
@@ -25,15 +24,7 @@ export const NavBar = () => {
                 className="border border-5 border-dark rounded-circle bg-dark mx-2 rotate"
                 />
             </Link>
-
-        <div className='navbar container-fluid navbar-expand-sm bg-dark px-5 border border-dark text-center'>
-                <Link 
-                    className="navbar-brand" 
-                    to="/"
-                >
-                    Banco
-                </Link>
-
+        <div className='navbar container-fluid navbar-expand-sm bg-dark px-5 border border-dark text-center'>            
                 <div className="navbar-collapse">
                     <div className="navbar-nav">
                     <NavLink 
@@ -48,6 +39,20 @@ export const NavBar = () => {
                         to="/bancoProfile"
                     >
                         Perfil
+                    </NavLink>
+
+                    <NavLink 
+                        className={({isActive}) => `nav-item nav-link  ${ isActive ? 'active':''}`}
+                        to="/favoritos"
+                    >
+                        Favoritos
+                    </NavLink>
+
+                    <NavLink 
+                        className={({isActive}) => `nav-item nav-link  ${ isActive ? 'active':''}`}
+                        to="/transacciones"
+                    >
+                        Transacciones
                     </NavLink>
                     </div>
                 </div>

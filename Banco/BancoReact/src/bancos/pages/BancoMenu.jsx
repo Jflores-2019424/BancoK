@@ -1,20 +1,16 @@
 import React from 'react'
+import { BancoProfile } from './BancoProfile'
+import { Favoritos } from './Favoritos'
+import { Transacciones } from './Transacciones'
 
 export const BancoMenu = () => {
   return (
-    <div className='container border border-dark mt-5 divi '>
+    <div className='container border border-dark mt-3 mb-5 divi p-3'>
       <h1>Menu</h1>
       <hr />
-      <p>Transacciones</p>
-      <div className="container bg-dark translate">
-        <h1>55</h1>
-      </div>
-      <div className="container bg-dark translate">
-        <h1>4135</h1>
-      </div>
-      <div className="container bg-dark translate">
-      <h1>654</h1>
-      </div>
+      <BancoProfile/> 
+      <Transacciones/> 
+      <Favoritos/> 
     </div>
   )
 }

@@ -6,6 +6,8 @@ import { BancoProfile } from '../pages/BancoProfile'
 import { Favoritos } from '../pages/Favoritos'
 import { Transacciones } from '../pages/Transacciones'
 import { ListProfile } from '../pages/ListProfile'
+import { NuevaTransaccion } from '../pages/nuevaTransaccion'
+
 
 export const BancosRoutes = () => {
   return (
@@ -17,6 +19,8 @@ export const BancosRoutes = () => {
               <Route path='banco' element={<BancoMenu/>}/>
 
               <Route path='bancoProfile' element={<BancoProfile/>}/>
+
+              <Route path='nuevaTransaccion' element={<NuevaTransaccion/>}/>
 
               <Route path='favoritos' element={<Favoritos/>}/>
 

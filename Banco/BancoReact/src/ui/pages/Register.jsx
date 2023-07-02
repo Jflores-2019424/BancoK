@@ -5,6 +5,12 @@ export const Register = () => {
 
   const navigate = useNavigate();
 
+  const onNavigateBack = () =>{
+    navigate('/login',{
+      replace: true
+    })
+  } 
+
   const onLogin = () => {
     navigate('/',{
       replace: true
@@ -26,9 +32,16 @@ export const Register = () => {
 
       <button
           onClick={onLogin}
-          className='btn btn-primary mb-2 button'
+          className='btn btn-primary mb-2 me-2 button'
           >
-            Login
+            Ingresar
+      </button>
+
+      <button
+        onClick={onNavigateBack}
+        className='btn btn-primary mb-2 button'
+        >
+          Cancelar
       </button>
     </div>
   )

@@ -15,7 +15,7 @@ export const Transacciones = () => {
           <hr />
           <button 
           onClick={onNavigate}
-          className='button2 container-right'>
+          className='button2 container-right btn'>
             Hacer Transferencia
           </button>
           <br />

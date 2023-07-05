@@ -15,7 +15,6 @@ const {
 
 api.post("/create-user",
 [
-  check("username", "El nombre de inicio es un campo obligatorio").not().isEmpty(),
   check("password", "La contraseña debe ser mayor a 6 digitos").isLength({
     min: 5,
   }),

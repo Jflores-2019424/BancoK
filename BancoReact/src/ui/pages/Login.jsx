@@ -1,16 +1,31 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { login } from '../API/login-api';
+import Swal from 'sweetalert2';
 
 export const Login = () => {
-
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const onLogin = () => {
-    navigate('/',{
-      replace: true
-    });
-  }
-
+  const onLogin = async (e) =>{
+    e.preventDefault();
+    const result = await login(email, password);
+    if(result){
+        Swal.fire({
+            icon: "success",
+            title: "Genial!",
+            text: "Ha iniciado sesión correctamente!",
+            confirmButtonText: "Ok",
+        }).then(r =>{
+            if(r.isConfirmed){
+                window.location.href = "/";
+            } else {
+                window.location.href = "/";
+            }
+        });
+    }
+};
   const onRegister = () =>{
     navigate('/register',{
       replace: true
@@ -18,6 +33,7 @@ export const Login = () => {
   }
 
   return (
+    <>
     //<div className="container">
         <div className='container-sm p-5 bg-dark bg-gradient position-absolute top-50 start-50 translate-middle'>
           <div className="row">
@@ -40,14 +56,14 @@ export const Login = () => {
 
         <div className='container '>
           <label>Email</label>
-          <input type="text" className='form-control mb-3' />
+          <input value={email} onChange={({target: {value}}) => setEmail(value)} type="email" className='form-control mb-3' />
           <label>Password</label>
-          <input type="password" className='form-control mb-3' />
+          <input value={password} onChange={({target: {value}}) => setPassword(value)} type="password" className='form-control mb-3' />
         </div>
 
         <div className='text-center'>
           <button
-          onClick={onLogin}
+          onClick={(e) => onLogin(e)}
           className='btn btn-primary mb-2 button'
           >
             Login
@@ -62,5 +78,6 @@ export const Login = () => {
         </div>
       </div>
     //</div>
+    </>
   )
 }

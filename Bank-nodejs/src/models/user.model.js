@@ -6,49 +6,35 @@ const Schema = mongoose.Schema;
 const UserSchema = Schema({
     name: {
         type: String,
-        required: true,
+        required: false,
     },
-    username: {
+    lastname: {
         type: String,
-        required: true,
+        required: false,
     },
-    account: [{
-        No: Number,
-        tipo: String,
-        banco: String,
-        saldo: Number
-    }],
     DPI: {
         type: String,
-        required: true,
+        required: false,
     },
     direction: {
         type: String,
-        required: true,
+        required: false,
     },
     cellphone: {
         type: String,
-        required: true,
+        required: false,
     },
     email:{
         type: String,
-        required: true
+        required: false
     },
     password: {
         type: String,
-        required: true
-    },
-    workName: {
-        type: String,
-        required: true,
-    },
-    monthly:{
-        type: String,
-        required: true
+        required: false
     },
     rol: {
         type: String,
-        required: true,
+        required: false,
     },
 });
 

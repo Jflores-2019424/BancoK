@@ -9,7 +9,7 @@ export const createUser = async (name, lastname, DPI, direction, cellphone, emai
         return response.data
 
     }catch(e){
-        throw new Error(e)
+        
     }
 
 }

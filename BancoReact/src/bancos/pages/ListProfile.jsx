@@ -9,8 +9,6 @@ export const ListProfile = () => {
         <div>
             <ul>
                 <li><BancoProfile/></li>
-                <li><BancoProfile/></li>
-                <li><BancoProfile/></li>
             </ul>
         </div>
     </div>

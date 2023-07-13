@@ -1,5 +1,5 @@
 import React from 'react'
-import { BancoProfile } from './BancoProfile'
+import { ProfileCard } from './ProfileCard'
 
 export const ListProfile = () => {
   return (
@@ -7,10 +7,8 @@ export const ListProfile = () => {
         <h2 className=''>Lista de perfiles</h2>
         <hr />
         <div>
-            <ul>
-                <li><BancoProfile/></li>
-                <li><BancoProfile/></li>
-                <li><BancoProfile/></li>
+            <ul>                
+                <li><ProfileCard/></li>                
             </ul>
         </div>
     </div>

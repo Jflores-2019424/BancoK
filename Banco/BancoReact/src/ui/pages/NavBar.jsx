@@ -65,6 +65,14 @@ export const NavBar = () => {
                 </div>
 
                 <div className="navbar-collapse collapse w-100 order-3 dual-collapse2 d-flex justify-content-end">
+
+                    <NavLink 
+                        className={({isActive}) => `nav-item nav-link  ${ isActive ? 'active':''}`}
+                        to="/bancoProfile"
+                    >
+                        Perfil
+                    </NavLink>
+                    
                     <ul className="navbar-nav ml-auto">
                     <button className='nav-item nav-link btn'
                         onClick={ onLogout }

@@ -1,5 +1,5 @@
 import React from 'react'
-import {BancoProfile} from "./BancoProfile"
+import { ProfileCard } from './ProfileCard'
 
 export const Favoritos = () => {
   return (
@@ -8,7 +8,7 @@ export const Favoritos = () => {
         <hr />
         <div className=''>
             <ul>
-                <li><BancoProfile/></li>
+                <li><ProfileCard/></li>
             </ul>
         </div>
     </div>

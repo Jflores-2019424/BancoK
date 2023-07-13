@@ -16,6 +16,7 @@ export const BancosRoutes = () => {
 
       <div>
           <Routes>
+
               <Route path='banco' element={<BancoMenu/>}/>
 
               <Route path='bancoProfile' element={<BancoProfile/>}/>

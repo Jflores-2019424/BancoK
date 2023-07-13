@@ -1,0 +1,94 @@
+body{
+    background-image: url(assets/image/NaranCuad.jpg);
+    color: white;
+}
+
+.nav{
+    background-color: rgba(56, 56, 56, 0.7);
+}
+
+.divi{
+    background-color: rgba(53, 53, 53, 0.9);
+}
+
+.container-right{
+    text-align: end;
+}
+
+.button2{
+    background-color: #39a2db;
+    display: inline-block;
+    align-items: end;
+    border-radius: 15px 35px 15px 35px;
+    border: 3px black solid;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    text-decoration: none;
+}
+
+.button2:hover{
+    opacity: 0.8;
+    box-shadow: 2px 2px 5px rgb(107, 79, 49);
+}
+
+.button2:active{
+    opacity: 1.5;
+    box-shadow: 2px 2px 5px rgb(107, 79, 49);
+}
+
+.button{
+    cursor: pointer;
+    transition: all 0.4s;
+}
+
+.button:hover{
+    transform: translateY(-10px);
+    box-shadow: 0 7px 0 -2px #f85959,
+    0 15px 0 -4px #39a2db,
+    0 16px 10px -3px #39a2db;
+}
+
+.button:active{
+    transition: all 0.2s;
+    transform: translateY(-5px);
+    box-shadow: 0 2px 0 -2px #f85959,
+    0 12px 10px -3px #39a2db;
+}
+
+.rotate {
+    animation: rotation 8s infinite linear;
+}
+
+.translate:hover{
+    transform: translate(10px);
+    box-shadow: 2px 2px 2px 2px #f85959;
+}
+
+@keyframes rotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(359deg);
+    }
+  }
+
+.card{
+    transition: .2s all;
+    cursor: pointer;
+    box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0, 0.25);
+}
+
+.card > span{
+    display: block;
+}
+
+.contain:hover .card{
+    filter: blur(3px);
+    opacity: .5;
+    transform: scale(.98);
+    box-shadow: none;
+}
+
+.contain:hover .card:hover{
+    transform: scale(1);
+}

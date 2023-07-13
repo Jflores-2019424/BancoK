@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon index.js"
   },
-  "author": "Enner Salazar",
+  "author": "Hector Navarro y Ricardo Juarez",
   "license": "ISC",
   "dependencies": {
     "axios": "^1.4.0",

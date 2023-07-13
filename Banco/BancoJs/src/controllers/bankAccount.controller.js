@@ -1,4 +1,4 @@
-const CuentaBancaria = require('../models/bankAcount')
+ /* const CuentaBancaria = require('../models/bankAcount')
 const usuario = await usuario.findById(usuarioId);
 
 
@@ -55,3 +55,4 @@ module.exports = {
   aumentarSaldo,
   disminuirSaldo,
 };
+*/

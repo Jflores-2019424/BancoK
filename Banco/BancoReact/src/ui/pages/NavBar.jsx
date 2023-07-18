@@ -1,5 +1,6 @@
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import  logo  from '../../assets/image/LogoBanco.png'
+import { useEffect } from 'react';
 
 
 export const NavBar = () => {
@@ -11,6 +12,12 @@ export const NavBar = () => {
         navigate('/login',{
             replace: true
         })
+    }
+
+    const deleteToken = () =>{
+        useEffect(()=>{
+            localStorage.clear();
+         }, [])
     }
 
     return (
@@ -63,7 +70,7 @@ export const NavBar = () => {
                     
                     <ul className="navbar-nav ml-auto">
                     <button className='nav-item nav-link btn'
-                        onClick={ onLogout }
+                        onClick={onLogout}
                         >
                             Cerrar sesion
                         </button>

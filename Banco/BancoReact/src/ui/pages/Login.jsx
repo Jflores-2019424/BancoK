@@ -69,13 +69,6 @@ export const Login = () => {
           >
             Login
           </button>
-
-          <button
-          onClick={onRegister}
-          className='btn btn-primary mb-2 mx-3 button'
-          >
-            Registrarse
-          </button>
         </div>
       </div>
     </div>

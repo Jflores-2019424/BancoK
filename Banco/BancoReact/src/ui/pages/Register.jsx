@@ -7,7 +7,7 @@ import Swal from 'sweetalert2';
 export const Register = () => {
 
   const onNavigateBack = () =>{
-    navigate('/login',{
+    navigate('/banco',{
       replace: true
     })
   } 
@@ -32,9 +32,9 @@ export const Register = () => {
       confirmButtonText: "Ok"
     }).then((r) => {
       if (r.isConfirmed) {
-        navigate('/');
+        navigate('/banco');
       } else {
-        navigate('/');
+        navigate('/banco');
       }
     });
   } else {
@@ -81,7 +81,7 @@ export const Register = () => {
           onClick={imprimir}
           className='btn btn-primary mb-2 button'
           >
-            Login
+            Crear
       </button>
 
       <button

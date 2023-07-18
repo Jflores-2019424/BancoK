@@ -3,12 +3,13 @@ import { Route, Routes, useNavigate } from 'react-router-dom'
 import { Login } from '../ui/pages/Login'
 import { BancosRoutes } from '../bancos/routes/BancosRoutes'
 import { Register } from '../ui/pages/Register'
+import { isUserAuthenticated } from '../ui/helpers/LoginHelper'
 
 export const AppRouter = () => {
-   /*  const navigate = useNavigate()
+   const navigate = useNavigate()
         useEffect(()=>{
         if(!isUserAuthenticated()){ navigate("/login")}
-        }, [navigate]) */
+        }, [navigate]) 
   return (
     <>
         <Routes>

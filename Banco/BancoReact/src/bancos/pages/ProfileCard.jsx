@@ -22,6 +22,10 @@ export const ProfileCard = () => {
               <h5>Nombre: {perfilActual.name} </h5>
               <h5>Correo: {perfilActual.email} </h5>
               <h5>NO: {perfilActual.cellphone}</h5>
+
+              <button className='btn btn-danger button'>
+                Delete
+              </button>
             </div>
           );
       })}

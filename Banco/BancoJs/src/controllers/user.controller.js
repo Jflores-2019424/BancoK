@@ -4,18 +4,38 @@ const User = require("../models/user.model");
 const bcrypt = require("bcrypt");
 const { generateJWT } = require("../helpers/create-jwt");
 
+
+const adminApp = async(req, res) =>{
+  try{
+    let user = new User();
+    user.name = "Jose";
+    user.lastname = "Flores";
+    user.DPI = "4589631250101";
+    user.direction = "6-22 san bartolome milpas altas";
+    user.cellphone = "58280508";
+    user.email = "admin@gmail.com";
+    user.password = "admin";
+    user.rol = "ADMIN";
+    const userEncontrado = await User.findOne({email: user.email});
+    if(userEncontrado) return console.log("Admnin listo");
+    user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync());
+    user = user.save();
+    if (!user) return console.log("Admin no esta listo");
+    return console.log("Admin listo")
+  }catch(err){
+    throw new Error(err);
+  }
+};
+
 const createUser = async(req, res) =>{
     //if (req.user.rol === "ADMIN") {
     const { name,
-            username,
-            account,
+            lastname,
             DPI,
             direction,
             cellphone,
             email, 
-            password,
-            workName,
-            monthly,
+            password, 
             rol
         } = req.body;
 
@@ -171,4 +191,4 @@ const addAccount = async (req, res) => {
     }
   };
 
-module.exports =  {createUser, listUsers, updateUser, deleteUser, loginUser, addAccount};
+module.exports =  {adminApp, createUser, listUsers, updateUser, deleteUser, loginUser, addAccount};

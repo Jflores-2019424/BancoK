@@ -7,7 +7,9 @@ require("dotenv").config();
 const port = process.env.PORT;
 const routes = require ("./src/routes/user.routes");
 const cors = require("cors");
+const { adminApp } = require("./src/controllers/user.controller");
 
+adminApp();
 connection();
 
 app.use(express.urlencoded({extended: false}));

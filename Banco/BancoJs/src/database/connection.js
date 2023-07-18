@@ -1,9 +1,8 @@
 'use strict'
 
 require('dotenv').config();
-const database = process.env.URI_MONGO;
+const database = process.env.DATABASE;
 const mongoose = require("mongoose");
-mongoose.set('strictQuery', true);
 
 const connection = async() => {
     try{

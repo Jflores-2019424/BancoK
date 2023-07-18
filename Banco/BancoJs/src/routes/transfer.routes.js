@@ -2,9 +2,10 @@
 
 const { Router } = require("express");
 const api = Router();
-const cuentaBancariaController = require('../controllers/transfer');
+const {aumentarSaldo, disminuirSaldo, createBankAcount} = require("../controllers/bankAccount.controller")
 
-api.put('/cuentas/:id/aumentar-saldo', cuentaBancariaController.aumentarSaldo);
-api.put('/cuentas/:id/disminuir-saldo', cuentaBancariaController.disminuirSaldo);
+api.put('/aumentar-saldo/:id', aumentarSaldo);
+api.put('/disminuir-saldo/:id', disminuirSaldo);
+api.post('/create-acount', createBankAcount)
 
 module.exports = api;

@@ -1,6 +1,6 @@
- /* const CuentaBancaria = require('../models/bankAcount')
+const CuentaBancaria = require('../models/bankAcount.model')
 const usuario = await usuario.findById(usuarioId);
-
+const Acount = require("../models/bankAcount.model");
 
 
 const aumentarSaldo = async (req, res) => {
@@ -51,8 +51,34 @@ const disminuirSaldo = async (req, res) => {
   }
 };
 
+const createBankAcount = async(req, res) =>{
+  const { monto, user } = req.body;
+
+  try {
+      let acount = await Acount.findOne({user});
+      if(acount){
+          return res.status(400).send({
+              message: "Usuario en uso",
+              ok: false,
+              acount: acount,
+          })
+      }
+
+      acount = new Acount(req.body)
+      acount = await acount.save();
+          res.status(200).send({
+              message: `Creado`,
+              acount,
+      });
+
+  }catch (error) {
+      throw new Error(error)
+  }
+
+}
+
 module.exports = {
   aumentarSaldo,
   disminuirSaldo,
+  createBankAcount
 };
-*/

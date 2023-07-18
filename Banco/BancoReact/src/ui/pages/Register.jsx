@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { createUser } from '../API/register.api';
 import Swal from 'sweetalert2';
 
+
 export const Register = () => {
 
   const onNavigateBack = () =>{

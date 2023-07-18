@@ -7,9 +7,7 @@ export const Favoritos = () => {
         <h2 className=''>Favoritos</h2>
         <hr />
         <div className=''>
-            <ul>
-                <li><ProfileCard/></li>
-            </ul>
+            <ProfileCard/>
         </div>
     </div>
   )

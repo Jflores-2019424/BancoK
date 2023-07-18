@@ -8,7 +8,7 @@ export const BancoMenu = () => {
     <div className='container border border-dark mt-3 mb-5 divi p-3'>
       <h1>Menu</h1>
       <hr />
-      <div className='bg-dark container p-2'>
+      <div className='border border-dark container divi p-2'>
       <h2>Perfiles</h2>
       <hr />
       <ProfileCard/> 

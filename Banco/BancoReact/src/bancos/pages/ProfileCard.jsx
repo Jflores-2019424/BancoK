@@ -14,11 +14,11 @@ export const ProfileCard = () => {
 
   return (
     <>
-    <div className='container border border-dark mt-5 divi p-3'>
+    <div>
         
         {perfil.map((perfilActual, index) => {
           return (
-            <div key={perfilActual._id} className='container bg-dark transalate p-2 m-2'>
+            <div key={perfilActual._id} className='container bg-dark transalate m-2 p-2 border border-dark'>
               <h5>Nombre: {perfilActual.name} </h5>
               <h5>Correo: {perfilActual.email} </h5>
               <h5>NO: {perfilActual.cellphone}</h5>

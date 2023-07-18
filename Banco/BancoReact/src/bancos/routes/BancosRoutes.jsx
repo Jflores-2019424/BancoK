@@ -29,7 +29,7 @@ export const BancosRoutes = () => {
               
               <Route path='listProfile' element={<ListProfile/>}/>
 
-              <Route path='/' element={<Navigate to="banco"/>}/>
+              <Route path='/' element={<Navigate to="login"/>}/>
           </Routes>
       </div>
     </>

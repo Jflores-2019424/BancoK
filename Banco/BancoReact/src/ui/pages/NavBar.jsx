@@ -1,5 +1,5 @@
 import { Link, NavLink, useNavigate } from 'react-router-dom';
-
+import  logo  from '../../assets/image/LogoBanco.png'
 
 
 export const NavBar = () => {
@@ -18,7 +18,7 @@ export const NavBar = () => {
              <Link 
                     to="/"
                 >
-                <img src='src\assets\image\LogoBanco.png' 
+                <img src={ logo }
                 width="100" 
                 height="100" 
                 className="border border-5 border-dark rounded-circle bg-dark mx-2 rotate"

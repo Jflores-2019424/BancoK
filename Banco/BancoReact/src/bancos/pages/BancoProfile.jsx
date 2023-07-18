@@ -15,8 +15,7 @@ export const BancoProfile = () => {
 
   return (
     <>
-    <div className='container border border-dark mt-5 divi p-3'>
-        
+    <div className='container border border-dark mt-5 divi p-3'>        
         <h2>Perfil</h2>
         <hr />
         {perfil.map((perfilActual, index) => {
@@ -30,7 +29,6 @@ export const BancoProfile = () => {
             </div>
           );
       })}
-
     </div>
     </>
   )

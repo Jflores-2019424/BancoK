@@ -18,7 +18,7 @@ export const ProfileCard = () => {
         
         {perfil.map((perfilActual, index) => {
           return (
-            <div key={perfilActual._id} className='container bg-dark transalate m-2 p-2 border border-dark'>
+            <div key={perfilActual._id} className='container bg-dark transalate m-2 p-2 border border-dark card'>
               <h5>Nombre: {perfilActual.name} </h5>
               <h5>Correo: {perfilActual.email} </h5>
               <h5>NO: {perfilActual.cellphone}</h5>

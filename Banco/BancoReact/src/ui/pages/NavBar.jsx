@@ -13,12 +13,10 @@ export const NavBar = () => {
             replace: true
         })
     }
-
-    const deleteToken = () =>{
-        useEffect(()=>{
+        const deleteToken = () =>{
             localStorage.clear();
-         }, [])
-    }
+        }
+     
 
     return (
         <nav className="navbar navbar-expand-sm navbar-dark nav bg-gradient p-2">
@@ -70,7 +68,10 @@ export const NavBar = () => {
                     
                     <ul className="navbar-nav ml-auto">
                     <button className='nav-item nav-link btn'
-                        onClick={onLogout}
+                        onClick={()=>{
+                            deleteToken(),
+                            onLogout()
+                        }}
                         >
                             Cerrar sesion
                         </button>

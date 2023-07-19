@@ -74,14 +74,24 @@ export const Register = () => {
       <input type="text"  className='form-control mb-4'
       onChange={(e) => setLastname(e.target.value)}/>
       <label>DPI</label>
-      <input type="number"  className='form-control mb-4'
-      onChange={(e) => setDpi(e.target.value)}/>
+      <input
+        type="text"
+        className="form-control mb-4"
+        maxLength={13} 
+        pattern="[0-9]*" 
+        onChange={(e) => setDpi(e.target.value)}
+      />
       <label>Direccion</label>
       <input type="text"  className='form-control mb-4'
       onChange={(e) => setDirection(e.target.value)}/>
       <label>Numero de Telefono</label>
-      <input type="number"  className='form-control mb-4'
-      onChange={(e) => setCellphone(e.target.value)}/>
+      <input
+        type="text"
+        className="form-control mb-4"
+        maxLength={8}
+        pattern="[0-9]*"
+        onChange={(e) => setCellphone(e.target.value)}
+      />
       <label>Email</label>
       <input type="email"  className='form-control mb-4'
       onChange={(e) => setEmail(e.target.value)}/>

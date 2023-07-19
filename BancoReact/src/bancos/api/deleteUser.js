@@ -11,6 +11,6 @@ export const deleteUser = async (id) =>{
             title: "Error",
             text: "no se puede borrar este evento",
             confirmButtonText: "Ok"
-          });
+            });
     }
 }

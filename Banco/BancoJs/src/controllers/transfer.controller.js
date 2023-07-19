@@ -1,4 +1,94 @@
-const CuentaBancaria = require('../models/bankAcount');
+'use strict'
+
+const User = require ('../models/user.model');
+const Transferencia = require ('../models/transfer.model');
+
+
+//CREAR TRANSFERENCIAS
+
+const createTransferencias = async (req, res) => {
+  const { cuentaOrigen, cuentaDestino, saldo, monto, descripcion } = req.body;
+
+  try {
+    let usuarioOrigen = await User.findOne({ cuentaOrigen });
+    let usuarioDestino = await User.findOne({ cuentaDestino });
+
+    if ( !usuarioOrigen ) {
+      return res.status(404).send({
+        msg: "El número de cuenta de origen no existe, verificar los datos",
+      });
+    }
+
+    if ( !usuarioDestino ) {
+      return res.status(404).send({
+        msg: "El número de cuenta de destino no existe, verificar los datos",
+      });
+    }
+
+    if ( monto > 1000 ) {
+      return res.status(400).send({
+        msg: 
+          "El monto no puede ser mayor a Q1000.00",
+      });
+    }
+
+    if ( monto > usuarioOrigen.balance ) {
+      return res.status(400).send({
+        msg: 
+          "El monto no puede ser mayor al saldo disponible",
+      });
+    }
+
+    usuarioOrigen.balance - monto;
+    usuarioDestino.balance + monto;
+
+    await usuarioOrigen.save();
+    await usuarioDestino.save();
+
+    await User.updateOne(
+      { acountNumber: cuentaOrigen },
+      { $inc: { balance: -monto } }
+    );
+    await User.updateOne(
+      { accountNumber: cuentaDestino },
+      { $inc: { balance: monto } }
+    );
+
+    const transferencia = new Transferencia({
+      cuentaOrigen: cuentaOrigen,
+      saldo: saldo,
+      cuentaDestino: cuentaDestino,
+      monto: monto,
+      descripcion: descripcion,
+    });
+
+    console.log(usuarioOrigen);
+    console.log(usuarioDestino);
+
+    const newTransferencia = await transferencia.save();
+
+    usuarioOrigen.transactions.push(newTransferencia);
+    await usuarioOrigen.save();
+
+    res.status(210).send({
+      msg: "Transferencia realizada exitosamente",
+      ok: true,
+      transferencia: newTransferencia,
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send({
+      msg: "Error interno del servidor",
+    });
+  }
+}
+//EXPORTACIONES
+
+module.exports = {
+  createTransferencias,
+};
+
+/*const CuentaBancaria = require('../models/bankAcount');
 
 const transferirDinero = async (req, res) => {
   try {
@@ -33,3 +123,4 @@ const transferirDinero = async (req, res) => {
 module.exports = {
   transferirDinero,
 };
+*/

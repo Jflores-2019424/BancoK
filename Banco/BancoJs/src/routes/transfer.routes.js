@@ -1,11 +1,10 @@
 'use strict'
 
-const { Router } = require("express");
-const api = Router();
-const {aumentarSaldo, disminuirSaldo, createBankAcount} = require("../controllers/bankAccount.controller")
+const {Router} = require('express');
+const { createTransferencias } = require("../controller/transferenciaController");
 
-api.put('/aumentar-saldo/:id', aumentarSaldo);
-api.put('/disminuir-saldo/:id', disminuirSaldo);
-api.post('/create-acount', createBankAcount)
+const api = Router();
+api.post('/create-transfencias', createTransferencias);
+api.get('/transaction-historial', historyTransaction)
 
 module.exports = api;

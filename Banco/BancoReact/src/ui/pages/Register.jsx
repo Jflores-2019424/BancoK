@@ -19,33 +19,45 @@ export const Register = () => {
   const [cellphone, setCellphone] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('') 
+  const [ingresos, setIngresos] = useState('')
   
   const imprimir = async (e) => {
     e.preventDefault();
-
-    const result = await createUser(name, lastname, dpi,direction, cellphone, email, password)
-    if (result) {   {/* alerta por si la creacion se dio correctamente */}
-    Swal.fire({
-      icon: 'success',
-      title: "Genial",
-      text: "Se ha creado el usuario correctamente",
-      confirmButtonText: "Ok"
-    }).then((r) => {
-      if (r.isConfirmed) {
-        navigate('/banco');
-      } else {
-        navigate('/banco');
-      }
-    });
-  } else {
-    Swal.fire({
-      icon: 'error',
-      title: "Error",
-      text: "No se pudo crear el usuario",
-      confirmButtonText: "Ok"
-    });
-  }
-  }
+  
+    if (ingresos < 100) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Los ingresos son muy bajos',
+        confirmButtonText: 'Ok',
+      });
+      return;
+    }
+  
+    const result = await createUser(name, lastname, dpi, direction, cellphone, email, password, ingresos);
+    if (result) {
+      Swal.fire({
+        icon: 'success',
+        title: 'Genial',
+        text: 'Se ha creado el usuario correctamente',
+        confirmButtonText: 'Ok',
+      }).then((r) => {
+        if (r.isConfirmed) {
+          navigate('/banco');
+        } else {
+          navigate('/banco');
+        }
+      });
+    } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'No se pudo crear el usuario',
+        confirmButtonText: 'Ok',
+      });
+    }
+  };
+  
 
 
   const navigate = useNavigate();
@@ -62,20 +74,33 @@ export const Register = () => {
       <input type="text"  className='form-control mb-4'
       onChange={(e) => setLastname(e.target.value)}/>
       <label>DPI</label>
-      <input type="number"  className='form-control mb-4'
-      onChange={(e) => setDpi(e.target.value)}/>
+      <input
+        type="text"
+        className="form-control mb-4"
+        maxLength={13} 
+        pattern="[0-9]*" 
+        onChange={(e) => setDpi(e.target.value)}
+      />
       <label>Direccion</label>
       <input type="text"  className='form-control mb-4'
       onChange={(e) => setDirection(e.target.value)}/>
       <label>Numero de Telefono</label>
-      <input type="number"  className='form-control mb-4'
-      onChange={(e) => setCellphone(e.target.value)}/>
+      <input
+        type="text"
+        className="form-control mb-4"
+        maxLength={8}
+        pattern="[0-9]*"
+        onChange={(e) => setCellphone(e.target.value)}
+      />
       <label>Email</label>
       <input type="email"  className='form-control mb-4'
       onChange={(e) => setEmail(e.target.value)}/>
       <label>Contraseña</label>
       <input type="password"  className='form-control mb-4'
       onChange={(e) => setPassword(e.target.value)}/>
+      <label>Ingresos Mensuales</label>
+      <input type="number"  className='form-control mb-4'
+      onChange={(e) => setIngresos(e.target.value)}/>
 
       <button
           onClick={imprimir}

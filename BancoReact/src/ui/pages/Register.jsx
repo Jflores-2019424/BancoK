@@ -19,33 +19,45 @@ export const Register = () => {
   const [cellphone, setCellphone] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('') 
+  const [ingresos, setIngresos] = useState('')
   
   const imprimir = async (e) => {
     e.preventDefault();
-
-    const result = await createUser(name, lastname, dpi,direction, cellphone, email, password)
-    if (result) {   {/* alerta por si la creacion se dio correctamente */}
-    Swal.fire({
-      icon: 'success',
-      title: "Genial",
-      text: "Se ha creado el usuario correctamente",
-      confirmButtonText: "Ok"
-    }).then((r) => {
-      if (r.isConfirmed) {
-        navigate('/banco');
-      } else {
-        navigate('/banco');
-      }
-    });
-  } else {
-    Swal.fire({
-      icon: 'error',
-      title: "Error",
-      text: "No se pudo crear el usuario",
-      confirmButtonText: "Ok"
-    });
-  }
-  }
+  
+    if (ingresos < 100) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Los ingresos son muy bajos',
+        confirmButtonText: 'Ok',
+      });
+      return;
+    }
+  
+    const result = await createUser(name, lastname, dpi, direction, cellphone, email, password, ingresos);
+    if (result) {
+      Swal.fire({
+        icon: 'success',
+        title: 'Genial',
+        text: 'Se ha creado el usuario correctamente',
+        confirmButtonText: 'Ok',
+      }).then((r) => {
+        if (r.isConfirmed) {
+          navigate('/banco');
+        } else {
+          navigate('/banco');
+        }
+      });
+    } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'No se pudo crear el usuario',
+        confirmButtonText: 'Ok',
+      });
+    }
+  };
+  
 
 
   const navigate = useNavigate();
@@ -76,6 +88,9 @@ export const Register = () => {
       <label>Contraseña</label>
       <input type="password"  className='form-control mb-4'
       onChange={(e) => setPassword(e.target.value)}/>
+      <label>Ingresos Mensuales</label>
+      <input type="number"  className='form-control mb-4'
+      onChange={(e) => setIngresos(e.target.value)}/>
 
       <button
           onClick={imprimir}

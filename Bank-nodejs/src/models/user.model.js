@@ -35,11 +35,17 @@ const UserSchema = Schema({
     rol: {
         type: String,
         required: false,
+        default: "CLIENT"
     },
 
     numCuenta: {
         type: String,
+        required: false,},
+
+    ingresosMen: {
+        type: Number,
         required: false,}
+    
 });
 
 

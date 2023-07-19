@@ -14,10 +14,14 @@ export const ProfileCard = () => {
     fetchData();
     }, []);
 
-    const imprimir = async (id) => {
+    const imprimir = async (id, rol) => {
+      if (rol === 'admin') {
+        return; 
+      }
+    
       const result = await deleteUser(id);
       if (result) {
-        setPerfil((prevPerfil) => prevPerfil.filter((perfil) => perfil._id !== id));
+        setPerfil((prevPerfil) => prevPerfil.filter((user) => user._id !== id));
     
         Swal.fire({
           icon: 'success',
@@ -27,6 +31,7 @@ export const ProfileCard = () => {
         });
       }
     };
+    
   return (
     <>
     <div>
@@ -38,10 +43,16 @@ export const ProfileCard = () => {
               <h5>Nombre: {perfilActual.name} </h5>
               <h5>Correo: {perfilActual.email} </h5>
               <h5>Cuenta: {perfilActual.numCuenta}</h5>
+              <h6>rol: {perfilActual.rol} </h6>
+              <h6> Q.{perfilActual.ingresosMen} </h6>
+              <button
+  className='btn btn-danger button'
+  onClick={() => imprimir(id, perfilActual.rol)}
+  disabled={perfilActual.rol === 'ADMIN'} 
+>
+  Delete
+</button>
 
-              <button className='btn btn-danger button' onClick={() => imprimir(id)}>
-        Delete
-      </button>
 
             </div>
           );

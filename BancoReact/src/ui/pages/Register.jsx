@@ -3,7 +3,14 @@ import { useNavigate } from 'react-router-dom';
 import { createUser } from '../API/register.api';
 import Swal from 'sweetalert2';
 
+
 export const Register = () => {
+
+  const onNavigateBack = () =>{
+    navigate('/banco',{
+      replace: true
+    })
+  } 
 
   const [name, setName] = useState('')
   const [lastname, setLastname] = useState('')
@@ -25,9 +32,9 @@ export const Register = () => {
       confirmButtonText: "Ok"
     }).then((r) => {
       if (r.isConfirmed) {
-        navigate('/');
+        navigate('/banco');
       } else {
-        navigate('/');
+        navigate('/banco');
       }
     });
   } else {
@@ -74,8 +81,15 @@ export const Register = () => {
           onClick={imprimir}
           className='btn btn-primary mb-2 button'
           >
-            Login
+            Crear
       </button>
+
+      <button
+      onClick={onNavigateBack}
+      className='btn btn-primary mb-2 button mx-2'
+      >
+        Cancelar
+    </button>
     </div>
   )
 }

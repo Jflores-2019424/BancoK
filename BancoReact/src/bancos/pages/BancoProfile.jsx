@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { lsitUsers } from '../api/listUsers.api';
+import { deleteUser } from '../api/deleteUser';
 
 export const BancoProfile = () => {
 
@@ -13,6 +14,9 @@ export const BancoProfile = () => {
     }, []);
 
 
+    
+
+
   return (
     <>
     <div className='container border border-dark mt-5 divi p-3'>
@@ -23,8 +27,10 @@ export const BancoProfile = () => {
           return (
             <div key={perfilActual._id} className='container bg-dark transalate p-2'>
               <h3>Nombre: {perfilActual.name} </h3>
+              <hr />
               <h5>Correo: {perfilActual.email} </h5>
-              <h5>No</h5>
+              <hr />
+              <h5>NO: {perfilActual.cellphone}</h5>
             </div>
           );
       })}

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { login } from '../API/login-api';
 import Swal from 'sweetalert2';
+import  logo  from '../../assets/image/LogoBanco.png'
 
 export const Login = () => {
   const [email, setEmail] = useState("");
@@ -19,7 +20,7 @@ export const Login = () => {
             confirmButtonText: "Ok",
         }).then(r =>{
             if(r.isConfirmed){
-                window.location.href = "/";
+                window.location.href = "/banco";
             } else {
                 window.location.href = "/";
             }
@@ -34,13 +35,13 @@ export const Login = () => {
 
   return (
     <>
-    //<div className="container">
+    <div className="container">
         <div className='container-sm p-5 bg-dark bg-gradient position-absolute top-50 start-50 translate-middle'>
           <div className="row">
             <div className="bg-dark mb-3 row">
 
               <div className="col-2 mb-2 me-4">
-                  <img src='src\assets\image\LogoBanco.png' 
+                  <img src={ logo } 
                     width="100" 
                     height="100"
                     className="border border-1 border-dark rounded-circle bg-dark rotate"
@@ -68,16 +69,9 @@ export const Login = () => {
           >
             Login
           </button>
-
-          <button
-          onClick={onRegister}
-          className='btn btn-primary mb-2 mx-3 button'
-          >
-            Registrarse
-          </button>
         </div>
       </div>
-    //</div>
+    </div>
     </>
   )
 }

@@ -1,5 +1,6 @@
 import { Link, NavLink, useNavigate } from 'react-router-dom';
-
+import  logo  from '../../assets/image/LogoBanco.png'
+import { useEffect } from 'react';
 
 
 export const NavBar = () => {
@@ -12,13 +13,17 @@ export const NavBar = () => {
             replace: true
         })
     }
+        const deleteToken = () =>{
+            localStorage.clear();
+        }
+     
 
     return (
         <nav className="navbar navbar-expand-sm navbar-dark nav bg-gradient p-2">
              <Link 
                     to="/"
                 >
-                <img src='src\assets\image\LogoBanco.png' 
+                <img src={ logo }
                 width="100" 
                 height="100" 
                 className="border border-5 border-dark rounded-circle bg-dark mx-2 rotate"
@@ -34,12 +39,6 @@ export const NavBar = () => {
                         Menu
                     </NavLink>
 
-                    <NavLink 
-                        className={({isActive}) => `nav-item nav-link  ${ isActive ? 'active':''}`}
-                        to="/bancoProfile"
-                    >
-                        Perfil
-                    </NavLink>
 
                     <NavLink 
                         className={({isActive}) => `nav-item nav-link  ${ isActive ? 'active':''}`}
@@ -65,9 +64,14 @@ export const NavBar = () => {
                 </div>
 
                 <div className="navbar-collapse collapse w-100 order-3 dual-collapse2 d-flex justify-content-end">
+
+                    
                     <ul className="navbar-nav ml-auto">
                     <button className='nav-item nav-link btn'
-                        onClick={ onLogout }
+                        onClick={()=>{
+                            deleteToken(),
+                            onLogout()
+                        }}
                         >
                             Cerrar sesion
                         </button>

@@ -11,9 +11,36 @@ body{
     background-color: rgba(53, 53, 53, 0.9);
 }
 
+.container-right{
+    text-align: end;
+}
+
+.button2{
+    background-color: #39a2db;
+    display: inline-block;
+    align-items: end;
+    border-radius: 15px 35px 15px 35px;
+    border: 3px black solid;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    text-decoration: none;
+}
+
+.button2:hover{
+    opacity: 0.8;
+    box-shadow: 2px 2px 5px rgb(107, 79, 49);
+}
+
+.button2:active{
+    opacity: 1.5;
+    box-shadow: 2px 2px 5px rgb(107, 79, 49);
+}
+
 .button{
     cursor: pointer;
     transition: all 0.4s;
+    width: 10%;
+
+    align-items: end;
 }
 
 .button:hover{
@@ -52,6 +79,7 @@ body{
     transition: .2s all;
     cursor: pointer;
     box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0, 0.25);
+    
 }
 
 .card > span{
